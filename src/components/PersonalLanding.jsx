@@ -725,8 +725,7 @@ function PublicationsAwards() {
 function Affiliations() {
   const affiliations = [
     { name: "Computational Science & Engineering", org: "MIT", href: null },
-    /* TODO: replace href with Varion Systems' real website URL when ready */
-    { name: "Varion Systems", org: "Shareholder", href: "#" },
+    { name: "Angel investor", org: "Independent", href: null },
     /* TODO: confirm CVC URL if you'd like to link it */
     { name: "Columbia Venture Community", org: "Member", href: null },
     { name: "MIT Poker Club", org: "MIT", href: null },
