@@ -726,6 +726,7 @@ function Affiliations() {
   const affiliations = [
     { name: "Computational Science & Engineering", org: "MIT", href: null },
     { name: "Angel investor", org: "Independent", href: null },
+    { name: "MathWorks", org: "Fellow", href: null },
     /* TODO: confirm CVC URL if you'd like to link it */
     { name: "Columbia Venture Community", org: "Member", href: null },
     { name: "MIT Poker Club", org: "MIT", href: null },
