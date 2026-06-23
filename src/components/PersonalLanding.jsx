@@ -724,12 +724,12 @@ function PublicationsAwards() {
 
 function Affiliations() {
   const affiliations = [
-    { name: "Computational Science & Engineering", org: "MIT", href: null, badge: "MIT" },
-    { name: "Angel investor", org: "Independent", href: null, badge: "∠" },
-    { name: "MathWorks", org: "Fellow", href: "https://www.mathworks.com", badge: "MW" },
+    { name: "Computational Science & Engineering", org: "MIT", href: "https://cse.mit.edu/", logo: "/images/logos/cse.png" },
+    { name: "Angel investor", org: "Independent", href: null, logo: null },
+    { name: "MathWorks", org: "Fellow", href: "https://www.mathworks.com", logo: "/images/logos/mathworks.png" },
     /* TODO: confirm CVC URL if you'd like to link it */
-    { name: "Columbia Venture Community", org: "Member", href: null, badge: "CVC" },
-    { name: "MIT Poker Club", org: "MIT", href: null, badge: "♠" },
+    { name: "Columbia Venture Community", org: "Member", href: null, logo: "/images/logos/columbia.png" },
+    { name: "MIT Poker Club", org: "MIT", href: null, logo: "/images/logos/mit.png" },
   ];
 
   return (
@@ -740,9 +740,15 @@ function Affiliations() {
           const inner = (
             <>
               <div className="flex items-center gap-2.5">
-                <span className="flex h-7 min-w-7 items-center justify-center rounded-full border border-pink-300/30 bg-pink-300/10 px-1.5 font-mono text-[9px] font-semibold tracking-tight text-pink-200">
-                  {a.badge}
-                </span>
+                {a.logo ? (
+                  <span className="flex h-8 items-center justify-center rounded-md bg-white px-2 py-1">
+                    <img src={a.logo} alt={`${a.name} logo`} className="h-5 w-auto object-contain" />
+                  </span>
+                ) : (
+                  <span className="flex h-8 min-w-8 items-center justify-center rounded-md border border-pink-300/30 bg-pink-300/10 px-2 font-mono text-[11px] font-semibold text-pink-200">
+                    ∠
+                  </span>
+                )}
                 <div className="font-mono text-[10px] uppercase tracking-wider text-pink-300">
                   {a.org}
                 </div>
