@@ -724,12 +724,12 @@ function PublicationsAwards() {
 
 function Affiliations() {
   const affiliations = [
-    { name: "Computational Science & Engineering", org: "MIT", href: null },
-    { name: "Angel investor", org: "Independent", href: null },
-    { name: "MathWorks", org: "Fellow", href: null },
+    { name: "Computational Science & Engineering", org: "MIT", href: null, badge: "MIT" },
+    { name: "Angel investor", org: "Independent", href: null, badge: "∠" },
+    { name: "MathWorks", org: "Fellow", href: "https://www.mathworks.com", badge: "MW" },
     /* TODO: confirm CVC URL if you'd like to link it */
-    { name: "Columbia Venture Community", org: "Member", href: null },
-    { name: "MIT Poker Club", org: "MIT", href: null },
+    { name: "Columbia Venture Community", org: "Member", href: null, badge: "CVC" },
+    { name: "MIT Poker Club", org: "MIT", href: null, badge: "♠" },
   ];
 
   return (
@@ -739,8 +739,13 @@ function Affiliations() {
         {affiliations.map((a, i) => {
           const inner = (
             <>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-pink-300">
-                {a.org}
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-7 min-w-7 items-center justify-center rounded-full border border-pink-300/30 bg-pink-300/10 px-1.5 font-mono text-[9px] font-semibold tracking-tight text-pink-200">
+                  {a.badge}
+                </span>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-pink-300">
+                  {a.org}
+                </div>
               </div>
               <div className="mt-3 flex items-center gap-1.5 text-[15px] font-medium text-zinc-100">
                 {a.name}
