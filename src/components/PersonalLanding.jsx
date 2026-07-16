@@ -185,7 +185,7 @@ function Hero() {
             </h1>
 
             <p className="font-mono mt-8 max-w-2xl text-[18px] leading-relaxed text-blue-200 md:text-[22px]">
-              Researcher. Pole dancer. Absolute wannabe poker player.
+              Researcher. Pole &amp; Calisthenics enthusiast. Absolute wannabe poker player.
             </p>
 
             <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-zinc-300 md:text-[16px]">
@@ -715,7 +715,7 @@ function PublicationsAwards() {
           ))}
         </ul>
         <div className="mt-5 rounded-sm border border-blue-300/20 bg-blue-300/[0.04] p-3 font-mono text-[11px] text-blue-200">
-          Coming soon: IEEE OCEANS 2026, Monterey, USA.
+          Coming soon: IEEE OCEANS 2026, Monterey, USA · SIAM CSE27.
         </div>
       </div>
     </div>
@@ -878,15 +878,10 @@ function PokerPhilosophy() {
 
 /* ─── pole dancing ────────────────────────────────────── */
 function PoleDancing() {
-  /* Real photo: /images/pole-dance.jpg
-     Additional placeholder slots remain — replace with more pole photos when ready. */
-  /* Three photos, all same aspect (3:4 portrait) and same span so they sit
-     in a clean equal-size row. The training photo is taller than the others
-     in its original — objectPosition shifts the visible crop to keep the
-     pose in view (rather than the empty ceiling above). */
+  /* Single photo (3:4 portrait). The training photo is taller than wide in its
+     original — objectPosition shifts the visible crop to keep the pose in view
+     (rather than the empty ceiling above). */
   const photos = [
-    { src: "/images/pole-dance.jpg", aspect: "aspect-[3/4]", span: "", caption: null, objectPosition: "center" },
-    { src: "/images/pole-pso-2.jpg", aspect: "aspect-[3/4]", span: "", caption: "PSO NE L3 Championship", objectPosition: "center" },
     { src: "/images/pole-training.jpg", aspect: "aspect-[3/4]", span: "", caption: null, objectPosition: "50% 38%" },
   ];
 
@@ -897,15 +892,16 @@ function PoleDancing() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-14 grid gap-12 md:grid-cols-[1fr_2fr]">
           <div>
-            <SectionLabel index="02" label="Pole" />
+            <SectionLabel index="02" label="Pole & Calisthenics" />
             <h2 className="mt-4 text-4xl font-light leading-[1.05] tracking-[-0.02em] text-zinc-50 md:text-[56px]">
-              Pole dancing.
+              Pole &amp; Calisthenics.
             </h2>
           </div>
           <div className="space-y-6 text-[15px] leading-relaxed text-zinc-200 md:pt-14 md:text-[17px]">
             <p>
-              I started my pole journey at a time in my life when I wasn't taking any risks and
-              I wasn't vibing with anything. I wanted to see what my body could do.
+              I started my pole and calisthenics journey at a time in my life when I wasn't
+              taking any risks and I wasn't vibing with anything. I wanted to see what my body
+              could do.
             </p>
             <p>
               I fell in love with the <span className="text-pink-300">grace</span>, the{" "}
@@ -931,26 +927,12 @@ function PoleDancing() {
               key={i}
               className={`relative ${p.span} ${p.aspect} overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br from-pink-300/[0.06] to-blue-300/[0.04] transition hover:border-pink-300/30`}
             >
-              {p.src ? (
-                <img
-                  src={p.src}
-                  alt={`Pole photo ${i + 1}`}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  style={{ objectPosition: p.objectPosition || "center" }}
-                />
-              ) : (
-                <>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-                    <Sparkle className="h-5 w-5 text-pink-300/60" />
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-300">
-                      TODO photo {i + 1}
-                    </span>
-                  </div>
-                  <div className="corners">
-                    <span /><span /><span /><span />
-                  </div>
-                </>
-              )}
+              <img
+                src={p.src}
+                alt={`Pole photo ${i + 1}`}
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: p.objectPosition || "center" }}
+              />
               {p.caption && (
                 <div className="absolute bottom-2 left-2 right-2 rounded-sm border border-pink-300/40 bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-pink-100 backdrop-blur-sm">
                   {p.caption}
