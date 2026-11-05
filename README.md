@@ -1,6 +1,6 @@
 # Sanaa Mouzahir — Personal Website
 
-Personal site with six sections: **Research · Poker · Pole · Travel · Content · Contact.**
+Personal site with five sections: **Research · Poker · Pole · Travel · Contact.**
 Soft pink + baby blue palette on a deep-plum near-black background, with clean gradient washes per section.
 
 ## Run it locally

@@ -4,14 +4,11 @@ import {
   ArrowUpRight,
   Check,
   CircleDot,
-  Sparkles,
   GraduationCap,
   BookOpen,
   Users,
   Briefcase,
   Brain,
-  Sparkle,
-  Video,
   Mail,
   Github,
   Linkedin,
@@ -24,7 +21,6 @@ import {
   Plane,
   Compass,
   Activity,
-  Music,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
@@ -34,7 +30,7 @@ import {
    Type: JetBrains Mono for data/labels, Inter Tight for body.
    No flow-field background — clean gradient washes instead.
 
-   Sections: Hero · Research · Poker · Pole · Travel · Content · Contact
+   Sections: Hero · Research · Poker · Pole · Travel · Contact
    ───────────────────────────────────────────────────────────── */
 
 export default function PersonalLanding() {
@@ -46,7 +42,6 @@ export default function PersonalLanding() {
       <Research />
       <PoleDancing />
       <Travel />
-      <ContentCreation />
       <Poker />
       <Family />
       <Contact />
@@ -135,7 +130,6 @@ function Nav() {
           <a href="#research" className="hover:text-pink-300 transition">Research</a>
           <a href="#pole" className="hover:text-pink-300 transition">Pole</a>
           <a href="#travel" className="hover:text-pink-300 transition">Travel</a>
-          <a href="#content" className="hover:text-pink-300 transition">Content</a>
           <a href="#poker" className="hover:text-pink-300 transition">Gambling</a>
         </nav>
         <div className="flex items-center gap-2">
@@ -231,7 +225,6 @@ function Hero() {
                 "GAMBLING",
                 "POLE",
                 "TRAVEL",
-                "CONTENT",
                 "MIT PHD",
                 "COMPUTATIONAL SCIENCE",
                 "UNCERTAINTY QUANTIFICATION",
@@ -240,7 +233,6 @@ function Hero() {
                 "GAMBLING",
                 "POLE",
                 "TRAVEL",
-                "CONTENT",
                 "MIT PHD",
                 "COMPUTATIONAL SCIENCE",
                 "UNCERTAINTY QUANTIFICATION",
@@ -416,36 +408,6 @@ function PlayingCardsBg() {
   );
 }
 
-/* Casino content background: layered playing cards + chip-edge marks */
-function CasinoChipsBg() {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      <PlayingCardsBg />
-      {/* a few "chip" rings as accents */}
-      {Array.from({ length: 8 }).map((_, i) => {
-        const left = (i * 47) % 100;
-        const top = (i * 71) % 100;
-        const size = 80 + ((i * 23) % 50);
-        return (
-          <div
-            key={i}
-            className="absolute rounded-full border-2 border-dashed"
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              transform: "translate(-50%, -50%)",
-              width: size,
-              height: size,
-              borderColor: i % 2 === 0 ? "rgba(249, 168, 212, 0.06)" : "rgba(147, 197, 253, 0.06)",
-            }}
-            aria-hidden="true"
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 /* Travel background: globe meridian lines + tiny location pins */
 function GlobeLinesBg() {
   return (
@@ -534,7 +496,7 @@ function EducationCredentials() {
           >
             MSEAS Lab
           </a>{" "}
-          · Advisor: Prof. Pierre Lermusiaux. Research in uncertainty quantification, machine
+          · Research in uncertainty quantification, machine
           learning, and numerics for ocean and engineering flows.
         </>
       ),
@@ -655,29 +617,48 @@ function OngoingProjects() {
 }
 
 function PublicationsAwards() {
+  const A = "Mouzahir, S.";
   const publications = [
     {
-      title: "Sparse and Deep Gaussian Process Closure Modeling for Non-Stationary β-Plane Flows Past Idealized Obstacles",
-      authors: "Mouzahir, S., and Lermusiaux, P.F.J.",
+      title: "Sparse and Deep Gaussian Process Closure Modeling for Non-Stationary Two-Dimensional Vorticity Flows Past Idealized Obstacles",
+      authors: A,
+      venue: "IEEE Journal of Oceanic Engineering — 2026",
+      type: "Journal paper · Accepted",
+    },
+    {
+      title: "HERM: A Hermite Exponential Rational Multistep Method. Part I: Accuracy, Stability, and Computational Cost",
+      authors: A,
       venue: "In preparation",
+      type: "Journal paper",
+    },
+    {
+      title: "HERMES: A Hermite Exponential Rational Multistep Method with Embedded Surrogates, Part II",
+      authors: A,
+      venue: "In preparation",
+      type: "Journal paper",
+    },
+    {
+      title: "Sparse and Deep Gaussian Process Closure Modeling for Non-Stationary Two-Dimensional β-Plane Vorticity Flows Past Idealized Obstacles",
+      authors: A,
+      venue: "IEEE OCEANS 2026",
       type: "Conference paper",
     },
     {
-      title: "Data-Driven Modeling for Under-Resolved Fluid Flows: Global and Local Gaussian Process Approaches",
-      authors: "Mouzahir, S., and Lermusiaux, P.F.J.",
-      venue: "In preparation",
-      type: "Journal paper",
+      title: "Sparse and Deep Gaussian Process Closure Modelling for 2-D Fluid and Ocean Flows",
+      authors: A,
+      venue: "American Geophysical Union, Ocean Sciences Meeting (OSM26), DO24C-1962 — 2026",
+      type: "Conference talk",
     },
     {
-      title: "Probabilistic subgrid scale closure with analytical temporal correction",
-      authors: "Mouzahir, S., and Lermusiaux, P.F.J.",
-      venue: "In preparation",
-      type: "Journal paper",
+      title: "Regime-conditioned data-driven subgrid-scale closures with uncertainty for turbulent flows past idealized capes and islands",
+      authors: A,
+      venue: "American Geophysical Union Annual Meeting — 2026",
+      type: "Conference talk",
     },
     {
-      title: "Sparse and Deep Gaussian Processes Closure for 2-D Fluids and Ocean Flows",
-      authors: "Mouzahir, S., and Lermusiaux, P.F.J.",
-      venue: "Ocean Sciences Meeting 2026 (OSM26), Glasgow, Scotland",
+      title: "Data-driven regime-conditioned subgrid-scale closures with uncertainty for turbulent flows past obstacles",
+      authors: A,
+      venue: "79th Annual Meeting of the APS Division of Fluid Dynamics — 2026",
       type: "Conference talk",
     },
     {
@@ -714,9 +695,6 @@ function PublicationsAwards() {
             </li>
           ))}
         </ul>
-        <div className="mt-5 rounded-sm border border-blue-300/20 bg-blue-300/[0.04] p-3 font-mono text-[11px] text-blue-200">
-          Coming soon: IEEE OCEANS 2026, Monterey, USA · SIAM CSE27.
-        </div>
       </div>
     </div>
   );
@@ -783,7 +761,7 @@ function Poker() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-12 grid gap-12 md:grid-cols-[1fr_2fr]">
           <div>
-            <SectionLabel index="05" label="Gambling" />
+            <SectionLabel index="04" label="Gambling" />
             <h2 className="mt-4 text-4xl font-light leading-[1.05] tracking-[-0.02em] text-zinc-50 md:text-[56px]">
               Decisions under uncertainty.
             </h2>
@@ -810,7 +788,7 @@ function PokerStats() {
 
   return (
     <div>
-      <SubsectionHeader icon={Activity} label="Games I play" index="5.1" />
+      <SubsectionHeader icon={Activity} label="Games I play" index="4.1" />
       <div className="mt-6 grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/5 md:grid-cols-2">
         {games.map((g, i) => (
           <div key={i} className="bg-[#0F0A11] p-6">
@@ -843,7 +821,7 @@ function PokerStats() {
 function PokerPhilosophy() {
   return (
     <div className="mt-16">
-      <SubsectionHeader icon={Brain} label="What gambling taught me" index="5.2" />
+      <SubsectionHeader icon={Brain} label="What gambling taught me" index="4.2" />
       <div className="mt-6 grid gap-5 md:grid-cols-3">
         {[
           {
@@ -878,13 +856,6 @@ function PokerPhilosophy() {
 
 /* ─── pole dancing ────────────────────────────────────── */
 function PoleDancing() {
-  /* Single photo (3:4 portrait). The training photo is taller than wide in its
-     original — objectPosition shifts the visible crop to keep the pose in view
-     (rather than the empty ceiling above). */
-  const photos = [
-    { src: "/images/pole-training.jpg", aspect: "aspect-[3/4]", span: "", caption: null, objectPosition: "50% 38%" },
-  ];
-
   return (
     <section id="pole" className="relative border-b border-white/5 bg-[#0F0A11] py-24">
       <PleaserBg />
@@ -904,8 +875,7 @@ function PoleDancing() {
               could do.
             </p>
             <p>
-              I fell in love with the <span className="text-pink-300">grace</span>, the{" "}
-              <span className="text-pink-300">sensuality</span>, and the{" "}
+              I fell in love with the <span className="text-pink-300">grace</span> and the{" "}
               <span className="text-pink-300">power</span> of the sport.
             </p>
             <p>
@@ -920,27 +890,6 @@ function PoleDancing() {
           </div>
         </div>
 
-        <SubsectionHeader icon={Sparkle} label="Photos" index="2.1" />
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {photos.map((p, i) => (
-            <div
-              key={i}
-              className={`relative ${p.span} ${p.aspect} overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br from-pink-300/[0.06] to-blue-300/[0.04] transition hover:border-pink-300/30`}
-            >
-              <img
-                src={p.src}
-                alt={`Pole photo ${i + 1}`}
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: p.objectPosition || "center" }}
-              />
-              {p.caption && (
-                <div className="absolute bottom-2 left-2 right-2 rounded-sm border border-pink-300/40 bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-pink-100 backdrop-blur-sm">
-                  {p.caption}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -1070,156 +1019,6 @@ function Travel() {
 }
 
 
-/* ─── content creation ────────────────────────────────── */
-function ContentCreation() {
-  const videos = [
-    {
-      src: "/images/pool-cnt.jpg",
-      caption: "Are you tired of not serving **** while playing pool?",
-      category: "EVERYDAY PHYSICS · COMING SOON",
-      hasCasinoBg: false,
-    },
-    {
-      /* Swapped from /images/pole-dance.jpg to /images/pole-content.jpg
-         to avoid repeating the gallery image */
-      src: "/images/pole-content.jpg",
-      caption: "Do Pole dancers defy gravity?",
-      category: "POLE PHYSICS · COMING SOON",
-      hasCasinoBg: false,
-    },
-    {
-      src: "/images/simulation.jpg",
-      caption: "Do we live in a simulation?",
-      category: "PHILOSOPHY OF PHYSICS · COMING SOON",
-      hasCasinoBg: false,
-    },
-    {
-      src: "/images/roulette.jpg",
-      caption: "Can you turn $100 into infinite money playing roulette?",
-      category: "CASINO MATH · COMING SOON",
-      hasCasinoBg: false,
-    },
-    {
-      src: "/images/god-math.jpg",
-      caption: "Can you prove the existence of god using math?",
-      category: "MATH & PHILOSOPHY · COMING SOON",
-      hasCasinoBg: false,
-    },
-  ];
-
-  return (
-    <section id="content" className="relative border-b border-white/5 bg-[#0F0A11] py-24">
-      <CasinoChipsBg />
-      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-      <div className="grid-bg-fine absolute inset-0 opacity-30" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-14 grid gap-12 md:grid-cols-[1fr_2fr]">
-          <div>
-            <SectionLabel index="04" label="Content" />
-            <h2 className="mt-4 text-4xl font-light leading-[1.05] tracking-[-0.02em] text-zinc-50 md:text-[56px]">
-              Content creation.
-            </h2>
-          </div>
-          <div className="space-y-5 md:pt-14">
-            <p className="text-[15px] leading-relaxed text-zinc-200 md:text-[17px]">
-              Find me on TikTok:{" "}
-              <a
-                href="https://www.tiktok.com/@hotgurlphysics"
-                target="_blank"
-                rel="noreferrer"
-                className="font-mono font-medium text-pink-300 underline-offset-2 hover:underline"
-              >
-                @hotgurlphysics
-              </a>
-            </p>
-            <p className="text-[15px] font-mono uppercase tracking-wider text-blue-200">
-              Videos dropping soon! <span className="text-zinc-400 normal-case">(I promise)</span>
-            </p>
-            <p className="text-[13px] italic leading-relaxed text-zinc-300">
-              I have been OH SO humbled by how hard making and editing videos actually is!
-            </p>
-          </div>
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {videos.map((v, i) => (
-            <div
-              key={i}
-              className="group relative overflow-hidden rounded-sm border border-white/10 bg-[#0F0A11] transition hover:border-pink-300/40"
-            >
-              {/* TikTok-style portrait thumbnail */}
-              <div className="relative aspect-[9/16] overflow-hidden bg-gradient-to-br from-pink-300/[0.08] to-blue-300/[0.06]">
-                {v.src ? (
-                  <img
-                    src={v.src}
-                    alt={v.caption}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex flex-col items-center gap-3 text-center">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-full border border-pink-300/40 bg-pink-300/10">
-                        <Sparkles className="h-5 w-5 text-pink-300" />
-                      </span>
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-pink-200/80">
-                        TODO photo
-                      </span>
-                    </div>
-                  </div>
-                )}
-                {/* darken-toward-bottom overlay for caption legibility */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
-
-                {/* caption overlay — TikTok-style centered text */}
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-pink-300 mb-2">
-                    {v.category}
-                  </div>
-                  <p className="text-[18px] font-bold leading-tight text-white md:text-[20px]" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-                    {v.caption}
-                  </p>
-                </div>
-
-                {/* play-button affordance */}
-                <div className="pointer-events-none absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/40 backdrop-blur-sm transition group-hover:bg-pink-300/30 group-hover:border-pink-300/60">
-                  <Video className="h-4 w-4 text-white" />
-                </div>
-
-                {/* tiktok handle pill bottom-right */}
-                <div className="absolute right-3 top-3 hidden md:block">
-                  {/* spacer — kept empty so play icon stands alone */}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* coming-soon banner */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 rounded-sm border border-pink-300/30 bg-pink-300/[0.04] px-6 py-4 font-mono text-[12px] text-zinc-200 md:flex-row md:items-center">
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-pink-300/70 blink" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-pink-300" />
-            </span>
-            <span className="text-pink-300 uppercase tracking-wider">Many many more videos dropping soon</span>
-            <span className="hidden text-zinc-300 md:inline">— follow @hotgurlphysics for the launch</span>
-          </div>
-          <a
-            href="https://www.tiktok.com/@hotgurlphysics"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-pink-300 hover:text-pink-200"
-          >
-            Follow <ExternalLink className="h-3 w-3" />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 /* ─── family / 'in case you wondered' ─────────────────── */
 function Family() {
   return (
@@ -1288,13 +1087,12 @@ function Contact() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-12 md:grid-cols-2">
           <div>
-            <SectionLabel index="06" label="Contact" />
+            <SectionLabel index="05" label="Contact" />
             <h2 className="mt-4 text-4xl font-light leading-[1.05] tracking-[-0.02em] text-zinc-50 md:text-[56px]">
               Get in touch.
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-zinc-200">
-              For research collaborations, speaking opportunities, content collabs, or just to
-              say hi.
+              For research collaborations, speaking opportunities, or just to say hi.
             </p>
 
             <div className="mt-10 space-y-4 font-mono text-[12px]">
@@ -1315,7 +1113,6 @@ function Contact() {
                 /* TODO: confirm exact LinkedIn URL — currently assumes the most common format */
                 { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sanaa-mouzahir/" },
                 { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/mouzahirsanaa/" },
-                { icon: Music, label: "TikTok", href: "https://www.tiktok.com/@hotgurlphysics" },
               ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
@@ -1359,7 +1156,6 @@ function Contact() {
                   <select className="w-full rounded-sm border border-white/10 bg-[#0F0A11] px-3 py-2.5 font-mono text-[13px] text-zinc-100 focus:border-pink-300/50 focus:outline-none">
                     <option>Research collaboration</option>
                     <option>Speaking / podcast</option>
-                    <option>Content collab</option>
                     <option>Just saying hi</option>
                     <option>Other</option>
                   </select>
@@ -1422,7 +1218,6 @@ function Footer() {
             <a href="#research" className="hover:text-pink-300">Research</a>
             <a href="#pole" className="hover:text-pink-300">Pole</a>
             <a href="#travel" className="hover:text-pink-300">Travel</a>
-            <a href="#content" className="hover:text-pink-300">Content</a>
             <a href="#poker" className="hover:text-pink-300">Gambling</a>
             <a href="#contact" className="hover:text-pink-300">Contact</a>
           </div>
